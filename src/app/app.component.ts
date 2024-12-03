@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   @ViewChild('envelope', { static: true }) envelope: ElementRef;
   animationState = 'inactive';
   expandLetter = false;
+  isFullScreen = false
 
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
@@ -37,6 +38,9 @@ export class AppComponent implements OnInit {
 
     setTimeout(() => {
       this.expandLetter = true;
+      setTimeout(() => {
+        this.isFullScreen = true;
+      }, 2000);
     }, 1400);
 
   }
