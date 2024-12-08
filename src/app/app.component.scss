@@ -3,8 +3,8 @@
   height: 350px;
   position: relative;
   cursor: pointer;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease;
+  // transform-style: preserve-3d;
+  // transition: all 0.5s ease;
   perspective: 1000px;
   margin: 50px auto;
 }
@@ -15,6 +15,7 @@
   height: 100%;
   background: #f8f8f8;
   border-top: 1px solid white;
+  z-index: -999;
 }
 
 .flap {
@@ -29,13 +30,14 @@
   background-repeat: no-repeat;
   left: -12px;
 
+  &--opened {
+    z-index: -999999;
+  }
 }
 
 .envelope.open .flap {
   transform: rotateX(180deg);
-  z-index: -1;
 }
-
 .stamp-texture {
   width: 50px;
   transition: background-image 0.8s;

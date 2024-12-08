@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   animationState = 'inactive';
   expandLetter = false;
   isFullScreen = false
+  isLetterOverFlap = false
 
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
@@ -35,6 +36,9 @@ export class AppComponent implements OnInit {
     this.inviteOpened = true
     this.handlePulseAnimation();
 
+    setTimeout(() => {
+      this.isLetterOverFlap = true;
+    }, 200)
 
     setTimeout(() => {
       this.expandLetter = true;
