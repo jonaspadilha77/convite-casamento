@@ -1,0 +1,7 @@
+@import './espacamentos';
+
+%container-page,
+.container-page {
+  height: 100%;
+  padding: $espacamento-5 $espacamento-4 $espacamento-6 $espacamento-4;
+}

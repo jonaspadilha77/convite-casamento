@@ -1,0 +1,20 @@
+/* stylelint-disable media-feature-range-notation */
+$breakpoints: (
+  'mobile': 375px,
+  'mobile-landscape': 576px,
+  'tablet': 768px,
+  'tablet-landscape': 992px,
+  'desktop': 1200px,
+) !default;
+
+/// @param {String} $breakpoint - Nome do breakpoint
+/// @require $breakpoints
+@mixin device($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Infelizmente, nenhum valor pôde ser recuperado de `#{$breakpoint}`. Os breakpoints disponíveis são: #{map-keys($breakpoints)}.";
+  }
+}

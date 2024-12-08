@@ -23,7 +23,7 @@
   height: 256px;
   transform-origin: top;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  background-image: url(/assets/images/flap.svg);
+  background-image: url("^assets/images/flap.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 }
 
 .envelope.open .stamp-texture {
-  background-image: url(/assets/images/selo_back.svg);
+  background-image: url("^assets/images/selo_back.svg");
 }
 
 .envelope.open .stamp-texture .lid {
@@ -141,7 +141,7 @@
 .stamp-texture {
   width: 50px;
   height: 100%;
-  background-image: url(/assets/images/selo.svg);
+  background-image: url("^assets/images/selo.svg");
   background-size: cover;
   background-position: center;
   border-radius: 21px;

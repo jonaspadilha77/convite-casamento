@@ -1,0 +1,20 @@
+$espacamento-1: 1.11vw; // 4px
+$espacamento-2: 2.22vw; // 8px
+$espacamento-3: 4.44vw; // 16px
+$espacamento-4: 6.67vw; // 24px
+$espacamento-5: 8.89vw; // 32px
+$espacamento-6: 11.11vw; // 40px
+$espacamento-7: 13.33vw; // 48px
+$espacamento-8: 15.56vw; // 56px
+$espacamento-9: 31.11vw; // 112px
+$espacamento-nulo: 0;
+$espacamento-maximo: 100%;
+$espacamento-base-4: 4;
+
+@function bra-multiply-base-4($multiply) {
+  @if type_of($multiply) != 'number' {
+    @debug 'Função bra-multiply-base-4 deve ter um parâmetro do tipo number';
+  }
+
+  @return $espacamento-base-4 * $multiply + px;
+}
