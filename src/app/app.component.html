@@ -22,7 +22,7 @@
       <div class="letter" [class.expand]="expandLetter">
         <img class="letter__image"src="assets/images/letter.svg"/>
       </div>
-      <img src="assets/images/IMG_6031.JPG" class="envelope__cover-image"/>
+      <img src="assets/images/IMG_6020.JPG" class="envelope__cover-image"/>
       <img src="assets/images/inferior.svg" class="inferior" />
     </div>
     <div class="flap" [class.flap--opened]="isLetterOverFlap">
@@ -33,14 +33,15 @@
       </div>
     </div>
   </div>
-  <div class="letter-full" [class.letter-full--fullscreen]="isFullScreen">
+  <div class="letter-full" [class.letter-full--fullscreen]="isFullScreen"  #letterFull>
     <div class="letter">
-      <img class="letter__image" src="assets/images/letter.svg" usemap="#image-map"/>
+      <img class="letter__image" src="assets/images/letter.png" usemap="#image-map"/>
       <map name="image-map">
-        <area target="_blank" alt="site" title="site" href="https://sites.icasei.com.br/jonaselilyan/home" coords="85,533,123,569" shape="rect">
-        <area target="_blank" alt="presenca" title="presenca" href="https://sites.icasei.com.br/jonaselilyan/pages/33301836" coords="171,567,205,532" shape="rect">
-        <area target="_blank" alt="maps" title="maps" href="https://www.google.com/maps/place/Moinho+Imperial+Eventos/@-20.9932657,-43.7807436,700m/data=!3m2!1e3!4b1!4m6!3m5!1s0xa22bb180d7fb4f:0xd7d4e7f107ae77a!8m2!3d-20.9932657!4d-43.7807436!16s%2Fg%2F11q1dcft_d?entry=ttu&amp;g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" coords="258,529,285,569" shape="rect">
-    </map>
+        <area target="_blank" alt="" title="" href="https://sites.icasei.com.br/jonaselilyan/home"coords="340,2115,484,2113,470,2276,343,2272" shape="poly">
+          <area target="_blank" alt="" title="" href="https://sites.icasei.com.br/jonaselilyan/pages/33301836" coords="695,2118,826,2118,809,2276,688,2274" shape="poly">
+          <area target="_blank" alt="" title="" href="https://www.google.com/maps/place/Moinho+Imperial+Eventos/@-20.9932657,-43.7807436,700m/data=!3m2!1e3!4b1!4m6!3m5!1s0xa22bb180d7fb4f:0xd7d4e7f107ae77a!8m2!3d-20.9932657!4d-43.7807436!16s%2Fg%2F11q1dcft_d?entry=ttu&amp;amp;g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" coords="1020,2111,1170,2101,1150,2274,1020,2282,997,2279" shape="poly">
+
+      </map>
     </div>
   </div>
 </div>

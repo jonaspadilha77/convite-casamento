@@ -1,6 +1,7 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, Renderer2, ElementRef, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, AfterViewInit, ViewChild, OnInit, HostListener } from '@angular/core';
 
+declare let imageMapResize: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,19 +19,38 @@ import { Component, Renderer2, ElementRef, AfterViewInit, ViewChild, OnInit } fr
     ])
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'convite-casamento';
   inviteOpened: boolean = false;
-  @ViewChild('envelope', { static: true }) envelope: ElementRef;
   animationState = 'inactive';
   expandLetter = false;
   isFullScreen = false
   isLetterOverFlap = false
 
+
+  @ViewChild('envelope', { static: true }) envelope: ElementRef;
+  @ViewChild('letterFull', { static: true }) letterFull: ElementRef;
+
   constructor(private renderer: Renderer2, private el: ElementRef) { }
+  ngAfterViewInit(): void {
+    imageMapResize();
+    this.renderer.listen(this.letterFull.nativeElement, 'transitionend', (event) => {
+      if (event.propertyName === 'width' || event.propertyName === 'height') {
+        this.checkLetterSize();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.animationState = 'active';
+  }
+
+  checkLetterSize() {
+    const div = this.letterFull.nativeElement;
+    const isLetterFulscreen = div.offsetWidth === window.innerWidth && div.offsetHeight === window.innerHeight;
+    if (isLetterFulscreen) {
+      imageMapResize();
+    }
   }
   openInvite() {
     this.inviteOpened = true
