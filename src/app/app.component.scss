@@ -26,15 +26,15 @@
 
 .flap {
   position: absolute;
-  width: 110%;
-  height: 256px;
+  width: 27vh;
+  height: 255px;
   transform-origin: top;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   background-image: url("^assets/images/flap.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  left: -12px;
+  left: -6px;
 
   &--opened {
     z-index: -999999;
