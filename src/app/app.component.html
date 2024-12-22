@@ -1,28 +1,9 @@
-<!-- <div #envelope class="envelope"
-  [class.open]="inviteOpened"
-  [@pulseAnimation]="animationState"
-  (mouseenter)="hoverInvite()"
-  (mouseleave)="mouseleaveInvite()"
-  (click)="openInvite()">
-
-  <div class="letter"></div>
-  <div class="front">
-    <div class="fold-lines"></div>
-  </div>
-  <div class="flap">
-    <div class="stamp">
-      <div class="stamp-texture"></div>
-    </div>
-  </div>
-</div> -->
-
 <div class="container" [class.open]="inviteOpened">
   <div #envelope class="envelope" [class.open]="inviteOpened" (click)="openInvite()" [@pulseAnimation]="animationState">
     <div class="front">
       <div class="letter" [class.expand]="expandLetter">
         <img class="letter__image"src="assets/images/letter.svg"/>
       </div>
-      <img src="assets/images/IMG_6020.JPG" class="envelope__cover-image"/>
       <img src="assets/images/inferior.svg" class="inferior" />
     </div>
     <div class="flap" [class.flap--opened]="isLetterOverFlap">

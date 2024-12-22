@@ -74,7 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 98%;
 
   &__image {
     max-width: 100%;
@@ -99,7 +99,6 @@
     transition: width 0.5s ease, height 0.5s ease;
     width: 100%;
     height: 100%;
-    margin-bottom: 1vh;
     z-index: 999;
     position: absolute;
   }
@@ -208,4 +207,8 @@
   display: flex;
   justify-content: center;
   transition: all 0.5s ease;
+  background-image: url("^assets/images/IMG_6020.JPG");
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
