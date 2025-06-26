@@ -1,5 +1,5 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, Renderer2, ElementRef, AfterViewInit, ViewChild, OnInit, HostListener } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 declare let imageMapResize: any;
 @Component({
@@ -19,9 +19,10 @@ declare let imageMapResize: any;
     ])
   ]
 })
-export class AppComponent implements OnInit, AfterViewInit{
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'convite-casamento';
-  inviteOpened: boolean = false;
+  isSeloAberto: boolean = false;
+  isSeloClicked: boolean = false;
   animationState = 'inactive';
   expandLetter = false;
   isFullScreen = false
@@ -53,23 +54,19 @@ export class AppComponent implements OnInit, AfterViewInit{
     }
   }
   openInvite() {
-    this.inviteOpened = true
+    this.isSeloClicked = true;
     this.handlePulseAnimation();
+    setTimeout(() => {
+      this.isSeloAberto = true
+    }, 500)
 
     setTimeout(() => {
-      this.isLetterOverFlap = true;
-    }, 200)
-
-    setTimeout(() => {
-      this.expandLetter = true;
-      setTimeout(() => {
-        this.isFullScreen = true;
-      }, 2000);
-    }, 1400);
+      this.isFullScreen = true;
+    }, 900);
 
   }
 
   handlePulseAnimation() {
-    this.animationState = !this.inviteOpened ? 'active' : 'inactive';
+    this.animationState = !this.isSeloClicked ? 'active' : 'inactive';
   }
 }

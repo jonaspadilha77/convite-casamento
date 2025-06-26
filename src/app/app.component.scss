@@ -5,41 +5,32 @@
   cursor: pointer;
   perspective: 1000px;
   margin: 50px auto;
-
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   &__cover-image {
-
     width: 100%;
     height: 100%;
     object-fit: cover;
-
   }
-}
 
-.front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #f8f8f8;
-  border-top: 1px solid white;
-  z-index: -999;
+  &--hide {
+    opacity: 0;
+  }
 }
 
 .flap {
-  position: relative;
+  top: 0;
+  position: absolute;
   width: 100%;
-  height: 74%;
-  transform-origin: top;
+  height: 100%;
+  transform-origin: left;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  left: -4.5%;
   &__front-image {
-    width: 119%;
+    height:100%;
   }
 
   &--opened {
-    align-items: flex-end;
+    // align-items: flex-end;
     z-index: -999999;
     .flap__front-image {
       z-index: 2;
@@ -47,43 +38,15 @@
   }
 }
 
-.envelope.open .flap {
-  transform: rotateX(180deg);
-}
-
-.stamp-texture {
-  width: 50px;
-  transition: background-image 0.8s;
-}
-
-.envelope.open .stamp {
-  transition: height 1s ease-in-out;
-}
-
-.envelope.open .stamp-texture {
-  background-image: url("^assets/images/selo_back.svg");
-}
-
-.envelope.open .stamp-texture .lid {
-  opacity: 1;
-}
-
 .letter {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  background: #fff;
   transition: all 0.9s ease 1s;
-  border-radius: 3px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: scale(1);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 98%;
+  height: 100%;
 
   &__image {
-    max-width: 100%;
     max-height: 100%;
     margin: auto;
   }
@@ -107,30 +70,16 @@
     height: 100%;
     z-index: 999;
     position: absolute;
+
+    .letter__image {
+      width: 100%;
+    }
+
+    .flap {
+      display: none;
+    }
   }
 }
-
-.envelope.open .letter {
-  transform: translateY(-350px);
-}
-
-.envelope.open .letter.expand {
-  transition: transform 0.8s ease-in-out 1s, top 1s ease-in-out 1s;
-  transform: translateY(0);
-  z-index: 4;
-}
-
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  z-index: 9999;
-  transition: transform 0.8s ease-in-out 1s, top 1s ease-in-out 1s;
-}
-
 
 
 @keyframes pulse {
@@ -157,40 +106,35 @@
 
 .stamp {
   position: absolute;
-  width: 100%;
-  height: 50px;
-  bottom: 0;
-}
-
-.stamp-texture {
-  width: 50px;
-  height: 100%;
-  background-image: url("^assets/images/selo.svg");
+  top: 50%;
+  background-image: url("^assets/images/selo_fita.svg");
   background-size: cover;
   background-position: center;
-  border-radius: 21px;
-  margin: 0 auto;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 3
+  left: -4.5%;
+  width: 110%;
+  height: 60px;
+  transform-origin: top;
+  transition: top 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--opened {
+    top: 110% ;
+  }
 }
 
-
-
-.lid {
-  opacity: 0;
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-top: 92px solid white;
-  transform: translateX(-50%);
-  background: linear-gradient(to top, #ccc, #fff);
-  transition: opacity 0.4s cubic-bezier(0.9, 0, 0.0, 0.1);
+.envelope.open .letter {
+  // transform: translateY(-350px);
 }
+
+.envelope.open .letter.expand {
+  transition: transform 0.8s ease-in-out 1s, top 1s ease-in-out 1s;
+  transform: translateY(0);
+  z-index: 4;
+}
+
+.envelope.open .flap {
+  transform: rotateY(-180deg);
+}
+
 
 @media screen and (max-height: 700px) {
   .envelope {
@@ -199,7 +143,7 @@
 }
 
 .container.open {
-  align-items: end;
+  // align-items: end;
 }
 
 .container {
@@ -213,7 +157,8 @@
   display: flex;
   justify-content: center;
   transition: all 0.5s ease;
-  background-image: url("^assets/images/IMG_6020.JPG");
+  // background-image: url("^assets/images/IMG_6020.JPG");
+  background-color: #e9e0e5;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
