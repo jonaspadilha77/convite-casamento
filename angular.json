@@ -32,7 +32,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/convite-casamento/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
